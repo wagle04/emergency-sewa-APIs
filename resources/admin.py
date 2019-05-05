@@ -150,11 +150,6 @@ class AdminDelete(Resource):
                             required=True,
                             help='Username cannot be blank!')
 
-    deleteparser.add_argument('password',
-                            type=str,
-                            required=True,
-                            help='Password cannot be blank!')
-
     def delete(self):
         data = AdminDelete.deleteparser.parse_args()
         admin = AdminModel.find_by_username(data['username'])

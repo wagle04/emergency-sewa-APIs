@@ -172,10 +172,6 @@ class UserDelete(Resource):
                             required=True,
                             help='Username cannot be blank!')
 
-    deleteparser.add_argument('password',
-                            type=str,
-                            required=True,
-                            help='Password cannot be blank!')
 
     def delete(self):
         data = UserDelete.deleteparser.parse_args()
