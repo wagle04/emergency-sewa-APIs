@@ -30,7 +30,7 @@ class AdminRegister(Resource):
                             help='Last Name cannot be blank!')
 
     registerparser.add_argument('phone_number',
-                            type=int,
+                            type=str,
                             required=True,
                             help='Phone Number cannot be blank!')
 
@@ -109,7 +109,7 @@ class AdminUpdate(Resource):
                             help='Last Name cannot be blank!')
 
     updateparser.add_argument('phone_number',
-                            type=int,
+                            type=str,
                             required=True,
                             help='Phone Number cannot be blank!')
 

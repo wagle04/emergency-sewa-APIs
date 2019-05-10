@@ -17,7 +17,7 @@ class AgentRegister(Resource):
 
 
     registerparser.add_argument('phone_number',
-                            type=int,
+                            type=str,
                             required=True,
                             help='Phone Number cannot be blank!')
 
@@ -85,7 +85,7 @@ class AgentUpdate(Resource):
                             help='Password cannot be blank!')
 
     updateparser.add_argument('phone_number',
-                            type=int,
+                            type=str,
                             required=True,
                             help='Phone Number cannot be blank!')
 

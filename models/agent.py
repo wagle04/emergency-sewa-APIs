@@ -7,7 +7,7 @@ class AgentModel(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(50))
     password = db.Column(db.String(100))
-    phone_number = db.Column(db.Integer)
+    phone_number = db.Column(db.String(10))
     vehicle_no = db.Column(db.String(50))
     availability = db.Column(db.Boolean)
     type = db.Column(db.String(50))

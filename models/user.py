@@ -10,7 +10,7 @@ class UserModel(db.Model):
     fname = db.Column(db.String(50))
     mname = db.Column(db.String(50))
     lname = db.Column(db.String(50))
-    phone_number = db.Column(db.Integer)
+    phone_number = db.Column(db.String(10))
     date_of_birth = db.Column(db.String(50))
     email = db.Column(db.String(50))
     assist = db.Column(db.String(50))
