@@ -74,7 +74,7 @@ class AdminLogin(Resource):
 
     def post(self):
         data = AdminLogin.loginparser.parse_args()
-        admin = AdminModel.find_by_username(data['username'])
+        admin = AdminModel.find_by_username(data['username'],data['password'])
         if admin:
             return {"message": "Login Success", "admin": admin.json() }, 200
 

@@ -13,10 +13,11 @@ class TicketModel(db.Model):
     user_confirm = db.Column(db.Boolean)
     agent_confirm = db.Column(db.Boolean)
     solved = db.Column(db.Boolean)
+    valid = db.Column(db.Boolean)
     
 
 
-    def __init__(self, user_id, agent_id, type, time_created, time_solved, user_confirm, agent_confirm, solved):
+    def __init__(self, user_id, agent_id, type, time_created, time_solved, user_confirm, agent_confirm, solved,valid):
         
         self.user_id = user_id
         self.agent_id = agent_id
@@ -26,6 +27,7 @@ class TicketModel(db.Model):
         self.user_confirm = user_confirm
         self.agent_confirm = agent_confirm
         self.solved = solved
+        self.valid = valid
 
     def save_to_db(self):
         db.session.add(self)
@@ -37,7 +39,7 @@ class TicketModel(db.Model):
         db.session.commit()
 
     def json(self):
-        return {'ticket_id': self.ticket_id,'user_id':self.user_id, 'agent_id':self.agent_id, 'type':self.type, 'time_created':self.time_created,'time_solved':self.time_solved, 'user_confirm':self.user_confirm, 'agent_confirm':self.agent_confirm ,'solved':self.solved}
+        return {'ticket_id': self.ticket_id,'user_id':self.user_id, 'agent_id':self.agent_id, 'type':self.type, 'time_created':self.time_created,'time_solved':self.time_solved, 'user_confirm':self.user_confirm, 'agent_confirm':self.agent_confirm ,'solved':self.solved,'valid':self.valid}
 
 
     @classmethod

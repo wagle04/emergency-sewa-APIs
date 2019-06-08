@@ -85,7 +85,7 @@ class UserLogin(Resource):
 
     def post(self):
         data = UserLogin.loginparser.parse_args()
-        user = UserModel.find_by_username(data['username'])
+        user = UserModel.find_by_username(data['username'],data['password'])
         if user:
             return {"message": "Login Success", "user": user.json() }, 200
 

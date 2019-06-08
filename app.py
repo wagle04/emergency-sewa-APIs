@@ -12,6 +12,8 @@ from resources.userlocation import UserLocation, UserLocationInfo, UserLocationU
 from resources.agentlocation import AgentLocation, AgentLocationInfo, AgentLocationUpdate
 
 app = Flask(__name__)
+
+#app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///G:\\Projects\\py programs\\web interface for emergency sewa\\data.db'
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', 'sqlite:///data.db')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.secret_key = 'sewa'

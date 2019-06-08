@@ -40,6 +40,10 @@ class TicketGenerate(Resource):
                             type=bool,
                             default=False)
 
+    generateparser.add_argument('valid',
+                            type=bool,
+                            default=True)
+
 
     def post(self):
         data = TicketGenerate.generateparser.parse_args()
@@ -115,6 +119,10 @@ class TicketUpdate(Resource):
                             type=bool,
                             default=False)
 
+    updateparser.add_argument('valid',
+                            type=bool,
+                            default=True)
+
     def put(self):
         data = TicketUpdate.updateparser.parse_args()
 
@@ -127,6 +135,7 @@ class TicketUpdate(Resource):
         ticket.user_confirm = data['user_confirm']
         ticket.agent_confirm = data['agent_confirm']
         ticket.solved = data['solved']
+        ticket.valid = data['valid']
 
 
         try:

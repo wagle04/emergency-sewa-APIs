@@ -65,7 +65,7 @@ class AgentLogin(Resource):
                             help='Password cannot be blank!')
     def post(self):
         data = AgentLogin.loginparser.parse_args()
-        agent = AgentModel.find_by_username(data['username'])
+        agent = AgentModel.find_by_username(data['username'],data['password'])
         if agent:
             return {"message": "Login Success", "agent": agent.json() }, 200
 
