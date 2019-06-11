@@ -1,5 +1,5 @@
 import os
-
+from db import db
 from flask import Flask
 from flask_restful import Api
 from flask_jwt import JWT
@@ -49,7 +49,12 @@ api.add_resource(AgentLocation, '/agentlocation')
 api.add_resource(AgentLocationInfo, '/agentlocationinfo')
 api.add_resource(AgentLocationUpdate, '/agentlocationupdate')
 
+
+@app.route('/')		
+def index():		
+    return '<h1>Emergency Sewa APIs</h1>'		
+db.init_app(app)
+
 if __name__ == '__main__':
-    from db import db
-    db.init_app(app)
+   
     app.run(port=3000, debug=True)
