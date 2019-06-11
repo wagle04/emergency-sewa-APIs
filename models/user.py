@@ -45,5 +45,9 @@ class UserModel(db.Model):
         return cls.query.filter_by(username=username,password=password).first()
 
     @classmethod
+    def find_by_user_name(cls, username):
+        return cls.query.filter_by(username=username).first()
+
+    @classmethod
     def find_by_id(cls, _id):
         return cls.query.filter_by(id=_id).first()

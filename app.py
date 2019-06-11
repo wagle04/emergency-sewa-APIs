@@ -25,6 +25,7 @@ api.add_resource(UserRegister, '/userregister')
 api.add_resource(UserLogin, '/userlogin')
 api.add_resource(UserUpdate, '/userupdate')
 api.add_resource(UserDelete, '/userdelete')
+api.add_resource(UserExist, '/userexist')
 
 api.add_resource(AdminRegister, '/adminregister')
 api.add_resource(AdminLogin, '/adminlogin')

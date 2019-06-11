@@ -57,7 +57,7 @@ class UserRegister(Resource):
     def post(self):
         data = UserRegister.registerparser.parse_args()
 
-        if UserModel.find_by_username(data['username']):
+        if UserModel.find_by_username(data['username'],data['password']):
             return {"message": "A user with that username already exists"}, 409
 
         user = UserModel(**data)
@@ -68,6 +68,24 @@ class UserRegister(Resource):
 
         return {"message": "User created successfully"}, 201
 
+
+
+class UserExist(Resource):
+    
+    existparser = reqparse.RequestParser()
+    existparser.add_argument('username',
+                            type=str,
+                            required=True,
+                            help='Username cannot be blank!')
+
+
+    def post(self):
+        data = UserLogin.existparser.parse_args()
+        user = UserModel.find_by_user_name(data['username']])
+        if user:
+            return {"message": "User exists" }, 401
+            
+        return {"message": "User doesn't exist"}, 200
 
 
 class UserLogin(Resource):
