@@ -1,0 +1,14 @@
+﻿{% extends "layout.html" %}
+
+{% block body %}
+<div class="jumbotron text-center">
+    <h3>Emergency Sewa Admin Panel</h3>
+    <p class="lead">Welcome to Admin Panel of Emergency Sewa. You can look the databases used in this platform and perform 
+    other actions such as tracking user location, conforming the requests etc. 
+    {% if session.logged_in==NULL %}Login to continue!{% endif %}</p>
+    {% if session.logged_in==NULL %}
+    <a href="/login" class="btn btn-success btn-lg">Login</a>
+
+    {% endif %}
+</div>
+    {% endblock %}

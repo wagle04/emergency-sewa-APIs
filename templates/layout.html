@@ -1,0 +1,205 @@
+
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="utf-8">
+      <title>Emergency Sewa</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width-divice-width,initial-scale=1">
+      <link rel="stylesheet" type="text/css"  href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
+      <link  rel="stylesheet"  href="https://stackpath.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+      <link href="https://fonts.googleapis.com/css?family=Karla|Lato&display=swap" rel="stylesheet">
+      
+
+         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css" integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==" crossorigin=""/>
+
+
+    <!-- java script -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+     <!-- Make sure you put this AFTER Leaflet's CSS -->
+    <script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js" integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA==" crossorigin=""></script>
+
+       <style type="text/css">
+
+        body{
+        padding-top: 60px;
+        padding-bottom: 100px;
+        margin: 0px auto;
+        background-color:#afeeee;
+        background-repeat:no-repeat;
+        background-size:cover;
+            }
+
+         .container{
+         width: 80%;
+         margin: 0 auto; 
+         padding:15px;
+         }
+
+         .fixed-footer{
+         width: 100%;
+         margin-bottom:20px;
+         position: fixed;
+         background:#808080;
+         padding: 5px 0;
+         color: white;
+        bottom: 0;
+         height:4%;
+         }
+
+         .fixed-header{
+         top: 0;
+         height:5px;
+         width: 100%;
+         position: fixed;
+         padding: 10px 0;
+         color: #fff;
+         }
+
+        .login{
+            width:25%;
+            margin:0px auto;
+            font-family: 'Lato', sans-serif;
+            padding:20px;
+            border-style: solid;
+            border-width: 2px;
+            border-radius: 25px;
+            background-color:#DCDCDC;
+        }
+
+         .icon-bar{
+         width:80px;
+         padding-bottom:30px;
+         background-color: #555;
+         float:left;
+         }
+
+         .icon-bar a{
+         display:block;
+         font-size:36px;
+         color:white;
+         text-align: center;
+         padding: 20px;
+         transition: all 0.3s ease;
+         }
+
+         .icon-bar a:hover{
+         background-color: #000;
+         }
+
+         .active{
+         background-color: #FF5733;
+         }
+
+
+         .containerf{
+         margin-left:20px;
+         padding-top:-10px;
+         }
+
+         .logo{
+         margin:0px auto;
+         float:left;
+         }
+
+         .container1{
+         padding-right:200px;
+         padding-top:70px;
+         width:100%;
+         }
+
+		 .information{
+         padding-right:700px;
+         padding-bottom:500px;
+         margin: 0 auto;
+         }
+
+        #mapid { height: 500px; width:100%;}
+
+         .header{
+            color:red;
+            font-family: 'Lato', sans-serif;
+         }
+         .my-label {
+    position: absolute;
+    width:75px;
+    font-size:20px;
+}
+
+        a:hover{
+            text-decoration: none;
+         }
+
+                    table {  
+                color: #333;
+                font-family: Helvetica, Arial, sans-serif;
+                width: 100%; 
+                border-collapse: 
+                collapse; border-spacing: 0; 
+            }
+
+            td, th {  
+                border: 1px solid transparent; /* No more visible border */
+                height: 30px; 
+                transition: all 0.3s;  /* Simple transition for hover effect */
+            }
+
+            th {  
+                background: #DFDFDF;  /* Darken header a bit */
+                font-weight: bold;
+                
+                text-align: center;
+            }
+
+            td {  
+                background: #FAFAFA;
+                text-align: center;
+            }
+
+            /* Cells in even rows (2,4,6...) are one color */        
+            tr:nth-child(even) td { background: #F1F1F1; }   
+
+            /* Cells in odd rows (1,3,5...) are another (excludes header cells)  */        
+            tr:nth-child(odd) td { background: #FEFEFE; }  
+
+            tr td:hover { background: #666; color: #FFF; }
+         
+      </style>
+   </head>
+   <body>
+      <div class="fixed-header">
+         <nav class="navbar navbar-default">
+             <div class="container" style="height:10px;margin-top:-20px;">
+                 <div class="navbar-header">
+                    <a href='/' class="header"><h1>Emergency Sewa: Nepal's Emergency Help Service</h1></a>
+                 </div>
+                <div id="navbar" class="collapse navbar-collapse">
+                 <ul class="nav navbar-nav navbar-right">
+                    {% if session.logged_in %}
+                    <li style="margin-top:10px;"><a href="/logout">Logout</a></li>
+                    <li style="margin-top:10px;"><a href="/dashboard">Dashboard</a></li>
+                    <li style="margin-top:10px;"><a href="/admin">Databases</a></li>
+                    <li style="margin-top:10px;"><a >{{ session['username'] }}</a></li>
+                    {% else %}
+                    <li style="margin-top:10px;"><a href="/login">Login</a></li>
+                     {% endif %}
+                </ul>
+                </div>
+
+         </div>
+      </div>
+      
+    <div class="container" style='margin-top:50px;'>
+        {% include 'includes/_messages.html' %}
+        {% block body %} {% endblock %}
+    </div>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <div class="fixed-footer">
+       <div class="containerf">Copyright &copy; 2019 Emergency Sewa</div>
+    </div>
+    </body>
+    </html>

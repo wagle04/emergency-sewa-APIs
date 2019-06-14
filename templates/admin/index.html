@@ -1,0 +1,17 @@
+{% extends 'admin/master.html' %}
+
+{% block body%}
+
+<div class="list-group" style='width:50%;'>
+  <a href="#" class="list-group-item list-group-item-action active">
+    Databases
+  </a>
+  <a href="/admin/user" class="list-group-item list-group-item-action">User</a>
+  <a href="/admin/agent" class="list-group-item list-group-item-action">Agent</a>
+  <a href="/admin/admins" class="list-group-item list-group-item-action">Admins</a>
+  <a href="/admin/userlocation" class="list-group-item list-group-item-action">User Location</a>
+  <a href="/admin/agentlocation" class="list-group-item list-group-item-action">Agent Location</a>
+  <a href="/admin/ticket" class="list-group-item list-group-item-action">Ticket</a>
+</div>
+
+{% endblock body%}

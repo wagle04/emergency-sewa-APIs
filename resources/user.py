@@ -80,8 +80,8 @@ class UserExist(Resource):
 
 
     def post(self):
-        data = UserLogin.existparser.parse_args()
-        user = UserModel.find_by_user_name(data['username']])
+        data = UserExist.existparser.parse_args()
+        user = UserModel.find_by_user_name(data['username'])
         if user:
             return {"message": "User exists" }, 401
             

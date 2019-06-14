@@ -1,0 +1,65 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+<div>
+<h1>Recent Tickets</h1>
+
+
+
+<table>
+  <thead>
+    <tr>
+      <th >Ticket ID</th>
+      <th >User ID</th>
+      <th>Agent ID</th>
+      <th >Type</th>
+      <th >Time Created</th>
+      <th >Time Solved</th>
+      <th >User Confirm</th>
+      <th >Agent Confirm</th>
+      <th >Solved</th>
+      <th >Valid</th>
+    </tr>
+  </thead>
+  <tbody>
+
+  {% set tickets = session['tickets'] %}
+    {% for ticket in tickets %}
+      
+    <tr>
+      <td >{{ticket[0]}}</td>
+      <td >{{ticket[1]}}</td>
+      <td >{{ticket[2]}}</td>
+      <td >{{ticket[3]}}</td>
+      <td >{{ticket[4]}}</td>
+      <td >{{ticket[5]}}</td>
+      <td >
+        {% if ticket[6]==1%} &#10004; {% else %} &#10006;
+        {%endif%}
+      </td>
+      <td >
+        {% if ticket[7]==1%} &#10004; {% else %} &#10006;
+        {%endif%}
+      </td>
+      <td >
+        {% if ticket[8]==1%} &#10004; {% else %} &#10006;
+        {%endif%}
+      </td>
+      <td >
+        {% if ticket[9]==1%} &#10004; {% else %} &#10006;
+        {%endif%}
+      </td>
+      <td><a href={{ url_for('viewlocation',tid=ticket[0]) }} target="_blank">View</a>
+      </td>
+    </tr>
+
+    {% endfor %}
+
+
+  </tbody>
+</table>
+
+{% endblock %}
+
+
